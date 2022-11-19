@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HomeScene : MonoBehaviour
 {
+    public static UnityAction OnMainMenu;
     [SerializeField] private Button _playButton, _creditButton, _optionButton, _exitButton;
     [SerializeField] private GameObject _creditPopup, _optionPopuop, _exitPopup;
     [SerializeField] private string _nextScene;
 
     private void Start()
     {
+        OnMainMenu?.Invoke();
         _playButton.onClick.AddListener(StartGame);
         _optionButton.onClick.AddListener(Option);
         _exitButton.onClick.AddListener(Exit);
