@@ -111,11 +111,14 @@ public class CharacterMovement : MonoBehaviour
                 Debug.Log("meninggal");
             }
 
-            if (Input.GetButton("breath"))
+            if (direction.magnitude == 0)
             {
-                if (AirCapacity <= MaxAir)
+                if (Input.GetButton("breath"))
                 {
-                    AirCapacity += AirAdder * Time.deltaTime;
+                    if (AirCapacity <= MaxAir)
+                    {
+                        AirCapacity += AirAdder * Time.deltaTime;
+                    }
                 }
             }
         }
