@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BgmList:
   - BgmName: Home
-    Clip: {fileID: 8300000, guid: eef236e2b197cc541abf467380fa5def, type: 3}
+    Clip: {fileID: 8300000, guid: c05dbd7253bfbe94d81d0d20f53eb062, type: 3}
   - BgmName: Gameplay
-    Clip: {fileID: 8300000, guid: 3236e296b9929d54abea0569bde48ec7, type: 3}
+    Clip: {fileID: 8300000, guid: c45db968fd5991c4a97aea34ce95edb1, type: 3}
   SoundList:
   - SoundName: ButtonClick
     Clip: {fileID: 8300000, guid: 1fe48ca1704f314458d157f30727f99b, type: 3}
