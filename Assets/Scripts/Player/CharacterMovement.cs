@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public CharacterController CC;
+    public Animator TheAnimation;
 
     [Header("Horizontal Component")]
     public float Speed;
@@ -21,6 +22,7 @@ public class CharacterMovement : MonoBehaviour
     public Transform groundCheck;
     public float GroudDistance = 0.4f;
     public LayerMask groundMask;
+    public LayerMask DebugPlayer;
     public bool IsGrounded;
 
     [Header("Breathing Component")]
@@ -67,6 +69,11 @@ public class CharacterMovement : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targerAngle, ref turnSmoothvelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
             CC.Move(moveDir.normalized * Speed * Time.deltaTime);
+            TheAnimation.SetBool("run", true);
+        }
+        else
+        {
+            TheAnimation.SetBool("run", false);
         }
 
 
@@ -148,6 +155,12 @@ public class CharacterMovement : MonoBehaviour
                 AddHeatMeter();
                 AmountBranch -= 1;
             }
+        }
+
+        // player debug 
+        if (Physics.CheckSphere(groundCheck.position, GroudDistance*2, DebugPlayer))
+        {
+            FindObjectOfType<player_debug>().OnTriggerEntered();
         }
     }
 
